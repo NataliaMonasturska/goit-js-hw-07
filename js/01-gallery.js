@@ -1,10 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 
 const gallery = document.querySelector("div.gallery")
-const GalleryItems = galleryItems.map((item) => 
+const galleryItemsNew = galleryItems.map((item) => 
     
     `<div class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
+  <a class="gallery__link" href=${item.original}>
     <img
       class="gallery__image"
       src=${item.preview}
@@ -15,7 +15,7 @@ const GalleryItems = galleryItems.map((item) =>
 </div>`)
   .join("");
     
-gallery.insertAdjacentHTML("afterbegin", GalleryItems);
+gallery.insertAdjacentHTML("afterbegin", galleryItemsNew);
 
 
 gallery.addEventListener("click", (event) => {
