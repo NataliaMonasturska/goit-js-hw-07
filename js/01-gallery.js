@@ -29,15 +29,18 @@ gallery.addEventListener("click", (event) => {
     `<img 
    src= "${selectedColor}"
     width="800"
-    height="600"></img>`
-     
+    height="600"></img>`,
+    {
+      onShow: (instance) => { window.addEventListener('keydown', closeOnEscape,) },
+      onClose: (instance) => {window.removeEventListener('keydown', closeOnEscape,)}
+    }
   );
-  instance.show(window.addEventListener('keydown',(event)=>{
+  instance.show();
+  function closeOnEscape(event) {
   if (event.code === 'Escape') {
-      instance.close()
-  } 
-}));
+    instance.close()
+  }
+}
 });
-
 
 
